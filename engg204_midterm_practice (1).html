@@ -161,12 +161,13 @@ const CALC = [
      <div class="part"><span>(a)</span><div>Obtain an expression for the potential energy at equilibrium, $E_0$, in terms of $r_0$ and $n$.</div><span class="mk">[4 marks]</span></div>
      <div class="part"><span>(b)</span><div>Determine a proportionality for the elastic constant of this material.</div><span class="mk">[4 marks]</span></div>
    </div>`,
-   key:`(a) At equilibrium $F_N = 0$: $\\dfrac{e^2}{4\\pi\\varepsilon_0 r_0^2} = \\dfrac{Ce^2}{r_0^n}$ → $C = \\dfrac{r_0^{\\,n-2}}{4\\pi\\varepsilon_0}$<br>
-   $E = \\int F\\,dr = -\\dfrac{e^2}{4\\pi\\varepsilon_0 r} + \\dfrac{Ce^2}{(n-1)\\,r^{n-1}}$<br>
-   Sub in $C$ at $r_0$: $E_0 = \\dfrac{e^2}{4\\pi\\varepsilon_0 r_0}\\left[-1 + \\dfrac{1}{n-1}\\right] = \\mathbf{\\dfrac{2-n}{n-1}\\cdot\\dfrac{e^2}{4\\pi\\varepsilon_0 r_0}}$<br><br>
+   key:`(a) At equilibrium $F_A + F_R = 0$: $\\dfrac{e^2}{4\\pi\\varepsilon_0 r_0^2} = \\dfrac{Ce^2}{r_0^n}$ → $C = \\dfrac{r_0^{\\,n-2}}{4\\pi\\varepsilon_0}$<br>
+   Use $E = -\\int F\\,dr$ with the forces as given:<br>
+   $E_A = -\\displaystyle\\int \\dfrac{e^2}{4\\pi\\varepsilon_0 r^2}\\,dr = \\dfrac{e^2}{4\\pi\\varepsilon_0 r}$ &nbsp;&nbsp; $E_R = -\\displaystyle\\int -\\dfrac{Ce^2}{r^n}\\,dr = -\\dfrac{Ce^2}{(n-1)\\,r^{n-1}}$<br>
+   Sub in $C$ at $r_0$: $E_0 = \\dfrac{e^2}{4\\pi\\varepsilon_0 r_0}\\left[1 - \\dfrac{1}{n-1}\\right] = \\mathbf{\\dfrac{n-2}{n-1}\\cdot\\dfrac{e^2}{4\\pi\\varepsilon_0 r_0}}$<br><br>
    (b) $E \\propto \\left(\\dfrac{dF}{dr}\\right)_{r_0}$, with $\\dfrac{dF}{dr} = -\\dfrac{2e^2}{4\\pi\\varepsilon_0 r^3} + \\dfrac{nCe^2}{r^{n+1}}$<br>
    Sub in $C$ at $r_0$: $E \\propto \\mathbf{\\dfrac{(n-2)\\,e^2}{4\\pi\\varepsilon_0 r_0^3}}$<br>
-   <span class="small">Marking from the posted solution: 1 mark each for C, E, subbing C in, and simplifying in (a); 1 mark each for stating E ∝ dF/dr, finding dF/dr, subbing C, and simplifying in (b).</span>` },
+   <span class="small">The posted 2024 key shows (2 − n)/(n − 1) for (a) because it uses E = +∫F dr. Part (b) is the same either way.</span>` },
 
  { topic:'Crystallography', marks:10, wide:true,
    body:`Determine the vectors and planes for the following cubic systems. Use the coordinate system shown in each diagram.
@@ -199,6 +200,21 @@ const CALC = [
    (b) Rectangle $a \\times a\\sqrt{2}$: 4 corners × ¼ + 2 edge atoms × ½ = 2 atoms. Area $= \\sqrt{2}(2\\sqrt{2}R)^2 = 8\\sqrt{2}R^2$. $\\text{PD} = \\dfrac{1}{4\\sqrt{2}R^2} \\approx \\dfrac{0.177}{R^2}$<br>
    (c) $\\dfrac{0.25}{R^2} > \\dfrac{0.177}{R^2}$, so $(100)$ is denser. (Densest FCC plane is $(111)$, about $0.29/R^2$.)` },
 
+ { topic:'Crystal structures', src:'Challenge', marks:8,
+   body:`A metal has a density of 7.87 g/cm³, an atomic weight of 55.85 g/mol, and a cubic lattice parameter of $a = 0.2866$ nm. Use $\\rho = \\dfrac{nA}{V_C N_A}$, where $V_C = a^3$ and $N_A = 6.022 \\times 10^{23}$ atoms/mol.
+   <div class="parts">
+     <div class="part"><span>(a)</span><div>Is the metal SC, BCC or FCC? Justify with a calculation.</div><span class="mk">[3 marks]</span></div>
+     <div class="part"><span>(b)</span><div>Find the atomic radius $R$.</div><span class="mk">[1 mark]</span></div>
+     <div class="part"><span>(c)</span><div>Find the linear density along $[111]$ in atoms/nm.</div><span class="mk">[2 marks]</span></div>
+     <div class="part"><span>(d)</span><div>Find the planar density of $(110)$ in atoms/nm², and show it is denser than $(100)$.</div><span class="mk">[2 marks]</span></div>
+   </div>`,
+   key:`(a) Solve $\\rho = \\dfrac{nA}{a^3 N_A}$ for $n$. $a^3 = (0.2866\\times10^{-7}\\ \\text{cm})^3 = 2.354\\times10^{-23}$ cm³<br>
+   $n = \\dfrac{\\rho\\,a^3 N_A}{A} = \\dfrac{(7.87)(2.354\\times10^{-23})(6.022\\times10^{23})}{55.85} = 2.00$ → 2 atoms per cell → <b>BCC</b> (it's iron)<br>
+   (b) BCC atoms touch along the body diagonal: $\\sqrt{3}\\,a = 4R$ → $R = \\dfrac{\\sqrt{3}(0.2866)}{4} = 0.1241$ nm<br>
+   (c) $[111]$ is the body diagonal, length $\\sqrt{3}\\,a = 0.4964$ nm, with ½ + 1 + ½ = 2 atoms on it. $\\text{LD} = \\dfrac{2}{0.4964} = 4.03$ atoms/nm<br>
+   (d) $(110)$ is a rectangle $a \\times a\\sqrt{2}$: 4 corners × ¼ + 1 body-centre atom = 2 atoms. $\\text{PD}_{110} = \\dfrac{2}{\\sqrt{2}\\,a^2} = 17.2$ atoms/nm²<br>
+   &nbsp;&nbsp;&nbsp;$(100)$ is a cube face: 4 × ¼ = 1 atom. $\\text{PD}_{100} = \\dfrac{1}{a^2} = 12.2$ atoms/nm², so $(110)$ is denser. (It's the densest BCC plane.)<br>
+   <span class="small">Common traps: forgetting to convert nm to cm before cubing in (a), and using the FCC relation $a = 2\\sqrt{2}R$ in (b).</span>` },
 ];
 
 /* ---------- build slides ---------- */
